@@ -1,6 +1,40 @@
 import Link from "next/link";
 import Image from "next/image";
-import { site, nav } from "@/lib/content";
+import { site, nav, socials } from "@/lib/content";
+
+const socialIcons = {
+  Facebook: (
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  ),
+  Instagram: (
+    <>
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </>
+  ),
+  TikTok: (
+    <path d="M16 3c.3 2.3 1.8 4.1 4 4.4v3c-1.5.1-2.9-.4-4-1.2V15a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.2a3 3 0 1 0 2 2.8V3z" />
+  ),
+};
+
+function SocialIcon({ name }) {
+  const isFill = name !== "Instagram";
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill={isFill ? "currentColor" : "none"}
+      stroke={isFill ? "none" : "currentColor"}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {socialIcons[name]}
+    </svg>
+  );
+}
 
 export default function Footer() {
   return (
@@ -22,8 +56,8 @@ export default function Footer() {
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-blush-100/70">
             A premier beauty destination offering high-quality eyelash
-            extensions, refills, care, and removal — using only the finest
-            products and techniques.
+            extensions, refills, removal, and Korean-style glass-skin facials —
+            using only the finest products and techniques.
           </p>
         </div>
 
@@ -81,31 +115,22 @@ export default function Footer() {
                 {site.email}
               </a>
             </li>
-            <li>
+          </ul>
+
+          <div className="mt-5 flex gap-3">
+            {socials.map((social) => (
               <a
-                href={site.instagramUrl}
+                key={social.name}
+                href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 transition-colors hover:text-brand"
+                aria-label={social.name}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-blush-100 transition-colors hover:bg-brand hover:text-white"
               >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-                Instagram
+                <SocialIcon name={social.name} />
               </a>
-            </li>
-          </ul>
+            ))}
+          </div>
           <a
             href={site.bookingUrl}
             target="_blank"
@@ -118,9 +143,14 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-5 py-5 text-center text-xs text-blush-100/50">
-          Copyright &copy; {new Date().getFullYear()} SKYELASH. All rights
-          reserved.
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-5 py-5 text-center text-xs text-blush-100/50 sm:flex-row sm:justify-between">
+          <span>
+            Copyright &copy; {new Date().getFullYear()} SKYELASH. All rights
+            reserved.
+          </span>
+          {site.license && (
+            <span>CA Establishment License #{site.license}</span>
+          )}
         </div>
       </div>
     </footer>

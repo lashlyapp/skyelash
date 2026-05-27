@@ -22,7 +22,7 @@ export const metadata = {
     template: "%s | SKYE LASH",
   },
   description:
-    "SKYE LASH is a premier lash studio in San Jose, CA. Eyelash extensions, refills, personal care, and removal by certified master artists. Beautiful lashes, beautiful you.",
+    "SKYE LASH is a premier lash and beauty studio in San Jose, CA. Eyelash extensions, refills, removal, and Korean-style glass-skin facials by certified master artists. Beautiful lashes, beautiful you.",
   icons: {
     icon: "/images/favicon.png",
     apple: "/images/favicon.png",

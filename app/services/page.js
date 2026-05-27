@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { site, services, serviceBenefits, pricing } from "@/lib/content";
+import { site, services, serviceBenefits, facials, pricing } from "@/lib/content";
+import FacialPackages from "@/components/FacialPackages";
 
 export const metadata = {
   title: "Services",
@@ -78,6 +79,55 @@ export default function ServicesPage() {
           ))}
         </div>
       </section>
+
+      {/* Facials */}
+      <section className="mx-auto max-w-6xl px-5 pb-8">
+        <div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand to-brand-dark px-8 py-14 text-white md:px-14">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <span className="inline-block rounded-full bg-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-wider">
+                {facials.eyebrow}
+              </span>
+              <h2 className="mt-4 text-4xl font-bold">{facials.title}</h2>
+              <p className="mt-4 max-w-md leading-relaxed text-white/85">
+                {facials.body}
+              </p>
+              <a
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-block rounded-full bg-white px-7 py-3 text-base font-semibold text-brand transition-colors hover:bg-blush-100"
+              >
+                Book a Facial
+              </a>
+            </div>
+            <ul className="space-y-4">
+              {facials.points.map((point) => (
+                <li key={point} className="flex items-center gap-3 text-lg">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/20">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Facial packages */}
+      <FacialPackages />
 
       {/* Pricing */}
       <section className="bg-blush-100">

@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
+import FacialPackages from "@/components/FacialPackages";
 import {
   site,
-  stats,
   bookingSteps,
   services,
+  facials,
   pricing,
   team,
 } from "@/lib/content";
@@ -13,55 +16,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
-              San Jose Lash Studio
-            </p>
-            <h1 className="mt-4 text-5xl font-bold leading-[1.05] md:text-6xl">
-              Beautiful lashes,
-              <br />
-              <span className="text-brand">beautiful you.</span>
-            </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
-              Specializing in the most trending lash styles, applied by
-              certified master artists. Wake up effortlessly stunning, every
-              single day.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href={site.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-brand px-7 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark"
-              >
-                Book Now
-              </a>
-              <Link
-                href="/services"
-                className="rounded-full border border-brand/40 px-7 py-3 text-base font-semibold text-brand transition-colors hover:bg-blush-100"
-              >
-                View Services
-              </Link>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -right-6 -top-6 -z-10 h-full w-full rounded-[2rem] bg-blush-200/60" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-xl">
-              <Image
-                src="/images/svc-extension.jpg"
-                alt="Lash model"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* How to book */}
       <section className="mx-auto max-w-6xl px-5 py-16">
@@ -90,23 +45,10 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="bg-brand">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-5 py-12 text-center text-white md:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <div className="font-serif text-4xl font-bold md:text-5xl">
-                {stat.value}
-              </div>
-              <div className="mt-2 text-sm uppercase tracking-wider text-white/80">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Stats />
 
       {/* Services */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
+      <section id="services" className="mx-auto max-w-6xl px-5 py-16 scroll-mt-20">
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
@@ -147,6 +89,81 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Facials */}
+      <section className="mx-auto max-w-6xl px-5 py-8">
+        <div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand to-brand-dark text-white">
+          <div className="grid items-stretch gap-0 md:grid-cols-2">
+            <div className="order-2 px-8 py-12 md:order-1 md:px-12 md:py-14">
+              <span className="inline-block rounded-full bg-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-wider">
+                {facials.eyebrow}
+              </span>
+              <h2 className="mt-4 text-4xl font-bold">{facials.title}</h2>
+              <p className="mt-4 max-w-md leading-relaxed text-white/85">
+                {facials.body}
+              </p>
+              <ul className="mt-6 space-y-3">
+                {facials.points.map((point) => (
+                  <li key={point} className="flex items-center gap-3">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/20">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-block rounded-full bg-white px-7 py-3 text-base font-semibold text-brand transition-colors hover:bg-blush-100"
+              >
+                Book a Facial
+              </a>
+            </div>
+            <div className="relative order-1 min-h-72 md:order-2">
+              <Image
+                src={facials.image}
+                alt="Facial treatment at SKYE LASH"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 grid grid-cols-3 gap-4 sm:gap-6">
+          {facials.gallery.map((src, i) => (
+            <div
+              key={src}
+              className="relative aspect-square overflow-hidden rounded-2xl shadow-sm"
+            >
+              <Image
+                src={src}
+                alt={`Facial work ${i + 1}`}
+                fill
+                sizes="(max-width: 640px) 33vw, 33vw"
+                className="object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Facial packages */}
+      <FacialPackages />
 
       {/* Pricing */}
       <section className="bg-blush-100">
@@ -210,7 +227,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-2xl gap-8 sm:grid-cols-2">
+        <div className="mx-auto mt-12 grid max-w-3xl gap-8 sm:grid-cols-3">
           {team.map((member) => (
             <div key={member.name} className="text-center">
               <div className="relative mx-auto aspect-[3/4] overflow-hidden rounded-2xl shadow-md">
@@ -218,7 +235,7 @@ export default function Home() {
                   src={member.image}
                   alt={member.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 100vw, 33vw"
                   className="object-cover"
                 />
               </div>
