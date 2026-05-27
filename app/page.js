@@ -227,7 +227,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-3xl gap-8 sm:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member) => (
             <div key={member.name} className="text-center">
               <div className="relative mx-auto aspect-[3/4] overflow-hidden rounded-2xl shadow-md">
