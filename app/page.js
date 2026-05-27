@@ -218,16 +218,16 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-5 py-16">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
-            Meet the artists
+            Meet the team
           </p>
-          <h2 className="mt-3 text-4xl font-bold">Our top artists</h2>
+          <h2 className="mt-3 text-4xl font-bold">The SKYE LASH team</h2>
           <p className="mx-auto mt-4 max-w-2xl text-ink-soft">
-            Trained at the best lash schools with years of hands-on experience
-            in eyelash extensions.
+            Master lash artists, K-beauty facial specialists, and a warm
+            welcome — the people behind every beautiful visit.
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {team.map((member) => (
             <div key={member.name} className="text-center">
               <div className="relative mx-auto aspect-[3/4] overflow-hidden rounded-2xl shadow-md">
