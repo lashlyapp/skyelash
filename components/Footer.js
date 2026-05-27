@@ -148,9 +148,10 @@ export default function Footer() {
             Copyright &copy; {new Date().getFullYear()} SKYELASH. All rights
             reserved.
           </span>
-          {site.license && (
-            <span>CA Establishment License #{site.license}</span>
-          )}
+          <span>
+            Licensed Cosmetologist
+            {site.license && ` · CA License #${site.license}`}
+          </span>
         </div>
       </div>
     </footer>
