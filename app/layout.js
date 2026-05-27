@@ -2,7 +2,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { site, socials } from "@/lib/content";
+import { site, socials, locations } from "@/lib/content";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,23 +52,25 @@ export const metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "BeautySalon",
-  "@id": `${site.url}/#business`,
-  name: site.name,
-  image: `${site.url}/images/logo.png`,
-  url: site.url,
-  telephone: site.phoneHref.replace("tel:", ""),
-  email: site.email,
-  priceRange: site.priceRange,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "940 Saratoga Ave #106",
-    addressLocality: "San Jose",
-    addressRegion: "CA",
-    postalCode: "95129",
-    addressCountry: "US",
-  },
-  sameAs: socials.map((s) => s.url),
+  "@graph": locations.map((loc, i) => ({
+    "@type": "BeautySalon",
+    "@id": `${site.url}/#location-${i + 1}`,
+    name: loc.brand,
+    image: `${site.url}/images/logo.png`,
+    url: site.url,
+    telephone: loc.phoneHref.replace("tel:", ""),
+    priceRange: site.priceRange,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: loc.postal.street,
+      addressLocality: loc.postal.city,
+      addressRegion: loc.postal.region,
+      postalCode: loc.postal.zip,
+      addressCountry: loc.postal.country,
+    },
+    sameAs: socials.map((s) => s.url),
+    ...(i === 0 ? { email: site.email } : {}),
+  })),
 };
 
 export default function RootLayout({ children }) {

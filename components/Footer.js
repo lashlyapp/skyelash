@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { site, nav, socials } from "@/lib/content";
+import { site, nav, socials, locations } from "@/lib/content";
 
 const socialIcons = {
   Facebook: (
@@ -39,7 +39,7 @@ function SocialIcon({ name }) {
 export default function Footer() {
   return (
     <footer className="mt-24 bg-ink text-blush-100">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
             <Image
@@ -59,64 +59,6 @@ export default function Footer() {
             extensions, refills, removal, and Korean-style glass-skin facials —
             using only the finest products and techniques.
           </p>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
-            Studio Hours
-          </h4>
-          <p className="mt-4 text-sm text-blush-100/70">{site.hours}</p>
-
-          <h4 className="mt-8 text-sm font-semibold uppercase tracking-wider text-white">
-            Explore
-          </h4>
-          <ul className="mt-4 space-y-2 text-sm">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-blush-100/70 transition-colors hover:text-brand"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
-            Contact
-          </h4>
-          <ul className="mt-4 space-y-3 text-sm text-blush-100/70">
-            <li>
-              <a
-                href={site.phoneHref}
-                className="transition-colors hover:text-brand"
-              >
-                {site.phone}
-              </a>
-            </li>
-            <li>
-              <a
-                href={site.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-brand"
-              >
-                {site.address}
-              </a>
-            </li>
-            <li>
-              <a
-                href={`mailto:${site.email}`}
-                className="transition-colors hover:text-brand"
-              >
-                {site.email}
-              </a>
-            </li>
-          </ul>
-
           <div className="mt-5 flex gap-3">
             {socials.map((social) => (
               <a
@@ -131,15 +73,74 @@ export default function Footer() {
               </a>
             ))}
           </div>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
+            Explore
+          </h4>
+          <ul className="mt-4 space-y-2 text-sm">
+            {nav.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-blush-100/70 transition-colors hover:text-brand"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h4 className="mt-8 text-sm font-semibold uppercase tracking-wider text-white">
+            Email
+          </h4>
           <a
-            href={site.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-block rounded-full bg-brand px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
+            href={`mailto:${site.email}`}
+            className="mt-4 inline-block text-sm text-blush-100/70 transition-colors hover:text-brand"
           >
-            Book Now
+            {site.email}
           </a>
         </div>
+
+        {locations.map((loc) => (
+          <div key={loc.name}>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
+              {loc.name}
+            </h4>
+            {loc.brand !== site.name && (
+              <p className="mt-1 text-xs text-blush-100/50">{loc.brand}</p>
+            )}
+            <ul className="mt-4 space-y-3 text-sm text-blush-100/70">
+              <li>
+                <a
+                  href={loc.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-brand"
+                >
+                  {loc.address}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={loc.phoneHref}
+                  className="transition-colors hover:text-brand"
+                >
+                  {loc.phone}
+                </a>
+              </li>
+              <li>{loc.hours}</li>
+            </ul>
+            <a
+              href={loc.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-block rounded-full bg-brand px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
+            >
+              Book Now
+            </a>
+          </div>
+        ))}
       </div>
 
       <div className="border-t border-white/10">
