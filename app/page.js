@@ -135,7 +135,7 @@ export default function Home() {
             <div className="relative order-1 min-h-72 md:order-2">
               <Image
                 src={facials.image}
-                alt="Facial treatment at SKYE LASH"
+                alt="Facial treatment at Skyelash"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -220,35 +220,40 @@ export default function Home() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             Meet the team
           </p>
-          <h2 className="mt-3 text-4xl font-bold">The SKYE LASH team</h2>
+          <h2 className="mt-3 text-4xl font-bold">The Skyelash team</h2>
           <p className="mx-auto mt-4 max-w-2xl text-ink-soft">
             Master lash artists, K-beauty facial specialists, and a warm
             welcome — the people behind every beautiful visit.
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-6xl gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          {team.map((member) => (
-            <div key={member.name} className="text-center">
-              <div className="relative mx-auto aspect-square w-full max-w-[240px]">
-                <Image
-                  src={member.image}
-                  alt={`${member.name} — ${member.role}`}
-                  fill
-                  sizes="(max-width: 640px) 60vw, 20vw"
-                  className="object-contain"
-                />
+        {[
+          { rowClass: "mt-12 max-w-2xl grid-cols-2", members: team.filter((m) => ["Skye", "Nate"].includes(m.name)) },
+          { rowClass: "mt-8 max-w-6xl grid-cols-2 sm:grid-cols-4", members: team.filter((m) => !["Skye", "Nate"].includes(m.name)) },
+        ].map((row, i) => (
+          <div key={i} className={`mx-auto grid gap-8 ${row.rowClass}`}>
+            {row.members.map((member) => (
+              <div key={member.name} className="text-center">
+                <div className="relative mx-auto aspect-[7/8] w-full max-w-[240px]">
+                  <Image
+                    src={member.image}
+                    alt={`${member.name} — ${member.role}`}
+                    fill
+                    sizes="(max-width: 640px) 60vw, 20vw"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-2 text-sm font-medium text-ink-soft">
+                  {member.role}
+                </p>
               </div>
-              <p className="mt-2 text-sm font-medium text-ink-soft">
-                {member.role}
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ))}
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-5 pb-4">
+      <section className="mx-auto max-w-6xl px-5 pb-24">
         <div className="rounded-[2rem] bg-ink px-8 py-14 text-center text-white">
           <h2 className="text-4xl font-bold">Ready for your best lashes yet?</h2>
           <p className="mx-auto mt-4 max-w-xl text-blush-100/80">

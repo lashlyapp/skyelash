@@ -20,7 +20,7 @@ export default function Header() {
         >
           <Image
             src="/images/logo.png"
-            alt="SKYE LASH"
+            alt="Skyelash"
             width={48}
             height={48}
             priority
