@@ -230,13 +230,13 @@ export default function Home() {
         <div className="mx-auto mt-12 grid max-w-6xl gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {team.map((member) => (
             <div key={member.name} className="text-center">
-              <div className="relative mx-auto aspect-square w-full max-w-[240px]">
+              <div className="relative mx-auto aspect-[7/8] w-full max-w-[240px]">
                 <Image
                   src={member.image}
                   alt={`${member.name} — ${member.role}`}
                   fill
                   sizes="(max-width: 640px) 60vw, 20vw"
-                  className="object-contain"
+                  className="object-cover"
                 />
               </div>
               <p className="mt-2 text-sm font-medium text-ink-soft">
