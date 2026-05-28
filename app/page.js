@@ -253,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-5 pb-4">
+      <section className="mx-auto max-w-6xl px-5 pb-24">
         <div className="rounded-[2rem] bg-ink px-8 py-14 text-center text-white">
           <h2 className="text-4xl font-bold">Ready for your best lashes yet?</h2>
           <p className="mx-auto mt-4 max-w-xl text-blush-100/80">

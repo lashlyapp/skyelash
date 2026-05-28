@@ -179,7 +179,7 @@ skye@skyelash.com`}
         </a>
       </section>
 
-      <section className="mx-auto max-w-4xl px-5 pb-16 text-center">
+      <section className="mx-auto max-w-4xl px-5 pb-24 text-center">
         <a
           href={site.bookingUrl}
           target="_blank"
