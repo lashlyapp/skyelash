@@ -227,24 +227,29 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-6xl gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          {team.map((member) => (
-            <div key={member.name} className="text-center">
-              <div className="relative mx-auto aspect-[7/8] w-full max-w-[240px]">
-                <Image
-                  src={member.image}
-                  alt={`${member.name} — ${member.role}`}
-                  fill
-                  sizes="(max-width: 640px) 60vw, 20vw"
-                  className="object-cover"
-                />
+        {[
+          { rowClass: "mt-12 max-w-2xl grid-cols-2", members: team.filter((m) => ["Skye", "Nate"].includes(m.name)) },
+          { rowClass: "mt-8 max-w-6xl grid-cols-2 sm:grid-cols-4", members: team.filter((m) => !["Skye", "Nate"].includes(m.name)) },
+        ].map((row, i) => (
+          <div key={i} className={`mx-auto grid gap-8 ${row.rowClass}`}>
+            {row.members.map((member) => (
+              <div key={member.name} className="text-center">
+                <div className="relative mx-auto aspect-[7/8] w-full max-w-[240px]">
+                  <Image
+                    src={member.image}
+                    alt={`${member.name} — ${member.role}`}
+                    fill
+                    sizes="(max-width: 640px) 60vw, 20vw"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-2 text-sm font-medium text-ink-soft">
+                  {member.role}
+                </p>
               </div>
-              <p className="mt-2 text-sm font-medium text-ink-soft">
-                {member.role}
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ))}
       </section>
 
       {/* CTA */}
