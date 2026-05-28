@@ -17,13 +17,13 @@ const playfair = Playfair_Display({
 });
 
 const description =
-  "SKYE LASH is a premier lash and beauty studio in San Jose, CA. Eyelash extensions, refills, removal, and Korean-style glass-skin facials by certified master artists. Beautiful lashes, beautiful you.";
+  "Skyelash is a premier lash and beauty studio in San Jose, CA. Eyelash extensions, refills, removal, and Korean-style glass-skin facials by certified master artists. Beautiful lashes, beautiful you.";
 
 export const metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "SKYE LASH | Trending Lashes & Facials Studio in San Jose",
-    template: "%s | SKYE LASH",
+    default: "Skyelash | Trending Lashes & Facials Studio in San Jose",
+    template: "%s | Skyelash",
   },
   description,
   alternates: {
@@ -34,17 +34,17 @@ export const metadata = {
     apple: "/images/favicon.png",
   },
   openGraph: {
-    title: "SKYE LASH | Trending Lashes & Facials Studio",
+    title: "Skyelash | Trending Lashes & Facials Studio",
     description:
       "Eyelash extensions, refills, and care by certified master artists in San Jose, CA.",
     url: site.url,
-    siteName: "SKYE LASH",
+    siteName: "Skyelash",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SKYE LASH | Trending Lashes & Facials Studio",
+    title: "Skyelash | Trending Lashes & Facials Studio",
     description:
       "Eyelash extensions, refills, and care by certified master artists in San Jose, CA.",
   },

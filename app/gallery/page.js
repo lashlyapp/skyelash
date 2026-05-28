@@ -4,7 +4,7 @@ import { site, gallery } from "@/lib/content";
 export const metadata = {
   title: "Gallery",
   description:
-    "A look at the work of our master lash artists at SKYE LASH studio in San Jose, CA.",
+    "A look at the work of our master lash artists at Skyelash studio in San Jose, CA.",
 };
 
 export default function GalleryPage() {
@@ -30,7 +30,7 @@ export default function GalleryPage() {
             >
               <Image
                 src={src}
-                alt={`SKYE LASH work ${i + 1}`}
+                alt={`Skyelash work ${i + 1}`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 hover:scale-105"

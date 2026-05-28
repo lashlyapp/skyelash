@@ -5,7 +5,7 @@ import FacialPackages from "@/components/FacialPackages";
 export const metadata = {
   title: "Services",
   description:
-    "Eyelash extensions, refills, personal care, and removal at SKYE LASH studio in San Jose, CA.",
+    "Eyelash extensions, refills, personal care, and removal at Skyelash studio in San Jose, CA.",
 };
 
 export default function ServicesPage() {
@@ -18,7 +18,7 @@ export default function ServicesPage() {
         </p>
         <h1 className="mt-3 text-5xl font-bold">Lashes, done right</h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
-          SKYE LASH studio is a premier beauty destination offering
+          Skyelash studio is a premier beauty destination offering
           high-quality eyelash extensions, refills, care, and removal. Our
           trained technicians use only the highest quality products and
           techniques for customized, natural-looking results.

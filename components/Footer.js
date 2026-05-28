@@ -44,7 +44,7 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <Image
               src="/images/logo.png"
-              alt="SKYE LASH"
+              alt="Skyelash"
               width={44}
               height={44}
               className="h-10 w-10 object-contain"
@@ -146,7 +146,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-5 py-5 text-center text-xs text-blush-100/50 sm:flex-row sm:justify-between">
           <span>
-            Copyright &copy; {new Date().getFullYear()} SKYELASH. All rights
+            Copyright &copy; {new Date().getFullYear()} Skyelash. All rights
             reserved.
           </span>
           <span>

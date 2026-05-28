@@ -135,7 +135,7 @@ export default function Home() {
             <div className="relative order-1 min-h-72 md:order-2">
               <Image
                 src={facials.image}
-                alt="Facial treatment at SKYE LASH"
+                alt="Facial treatment at Skyelash"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -220,7 +220,7 @@ export default function Home() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             Meet the team
           </p>
-          <h2 className="mt-3 text-4xl font-bold">The SKYE LASH team</h2>
+          <h2 className="mt-3 text-4xl font-bold">The Skyelash team</h2>
           <p className="mx-auto mt-4 max-w-2xl text-ink-soft">
             Master lash artists, K-beauty facial specialists, and a warm
             welcome — the people behind every beautiful visit.
