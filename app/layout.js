@@ -22,7 +22,7 @@ const description =
 export const metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "SKYE LASH | Professional Lash Studio in San Jose",
+    default: "SKYE LASH | Trending Lashes & Facials Studio in San Jose",
     template: "%s | SKYE LASH",
   },
   description,
@@ -34,7 +34,7 @@ export const metadata = {
     apple: "/images/favicon.png",
   },
   openGraph: {
-    title: "SKYE LASH | Professional Lash Studio",
+    title: "SKYE LASH | Trending Lashes & Facials Studio",
     description:
       "Eyelash extensions, refills, and care by certified master artists in San Jose, CA.",
     url: site.url,
@@ -44,7 +44,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SKYE LASH | Professional Lash Studio",
+    title: "SKYE LASH | Trending Lashes & Facials Studio",
     description:
       "Eyelash extensions, refills, and care by certified master artists in San Jose, CA.",
   },

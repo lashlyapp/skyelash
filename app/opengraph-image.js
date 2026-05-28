@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { site } from "@/lib/content";
 
-export const alt = "SKYE LASH | Professional Lash Studio in San Jose";
+export const alt = "SKYE LASH | Trending Lashes & Facials Studio in San Jose";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
